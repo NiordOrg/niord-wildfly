@@ -21,12 +21,14 @@ ENV LAUNCH_JBOSS_IN_BACKGROUND true
 
 RUN yum install -y epel-release && yum install -y jq && yum clean all
 
-ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /opt/jboss/wildfly/bin/wait-for-it.sh
-RUN chmod +x /opt/jboss/wildfly/bin/wait-for-it.sh
+#ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /opt/jboss/wildfly/bin/wait-for-it.sh
+#RUN chmod +x /opt/jboss/wildfly/bin/wait-for-it.sh
 
 # Expose the ports we're interested in
 EXPOSE 8080
 
 # wait for database docker image before starting Keycloak
-CMD /opt/jboss/wildfly/bin/wait-for-it.sh niorddb:3306 --timeout=40 --strict \
-    -- /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -Dfile.encoding=UTF-8 -Dniord.home=${NIORD_HOME}
+#CMD /opt/jboss/wildfly/bin/wait-for-it.sh niorddb:3306 --timeout=40 --strict \
+#    -- /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -Dfile.encoding=UTF-8 -Dniord.home=${NIORD_HOME}
+    
+CMD /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -Dfile.encoding=UTF-8 -Dniord.home=${NIORD_HOME}

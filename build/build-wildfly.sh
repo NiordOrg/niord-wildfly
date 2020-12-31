@@ -41,3 +41,4 @@ $WILDFLY_CONF_DIR/install-hibernate-spatial.sh
 # Install the Keycloak adapter
 $WILDFLY_CONF_DIR/install-keycloak-adapter.sh
 
+rm -rf $WILDFLY_PATH/standalone/configuration/standalone_xml_history

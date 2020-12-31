@@ -1,0 +1,32 @@
+version: '3'
+
+# A simple docker compose file that shows how to startup wildfly with a mysql database
+services:
+
+  niord-mysql:
+    image: mysql:${MYSQL_VERSION:-5.7.16}
+    container_name: niord-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-mysql}
+      MYSQL_USER: niord
+      MYSQL_PASSWORD: ${NIORDDB_PASSWORD:-niord}
+      MYSQL_DATABASE: niord
+    ports:
+      - "3306:3306"
+    volumes:
+      - ${NIORD_HOME:-~/.niord-dk}/mysql/niord:/var/lib/mysql
+
+  niord-keycloak:
+    image: kaspernielsen/niord-wildfly:${NIORD_WILDFLY_VERSION:-0.9}
+    container_name: niord-wildfly
+    restart: unless-stopped
+    environment:
+      NIORDDB_PORT_3306_TCP_ADDR: niord-mysql
+    links:
+      - niord-mysql:niord
+    depends_on:
+      - niord-mysql
+    ports:
+      - "8080:8080"
+
