@@ -4,7 +4,7 @@
 DIR=`dirname $0`
 source $DIR/wildfly-env.sh
 
-MYSQL_DRIVER_VERSION=8.0.22
+MYSQL_DRIVER_VERSION=5.1.49
 MYSQL_DRIVER=mysql-connector-java-$MYSQL_DRIVER_VERSION.jar
 
 
@@ -22,7 +22,7 @@ module add \
   --dependencies=javax.api,javax.transaction.api
 
 # Add mysql driver
-/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-class-name=com.mysql.cj.jdbc.Driver)
+/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-class-name=com.mysql.jdbc.Driver)
 
 # Add data source
 data-source add \

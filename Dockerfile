@@ -28,9 +28,10 @@ RUN chmod +x /opt/jboss/wildfly/bin/wait-for-it.sh
 
 # Expose the ports we're interested in
 EXPOSE 8080
+EXPOSE 9990
 
 # wait for database docker image before starting Keycloak
-CMD /opt/jboss/wildfly/bin/wait-for-it.sh niord-mysql:3306 --timeout=40 --strict \
+CMD /opt/jboss/wildfly/bin/wait-for-it.sh ${NIORDDB_PORT_3306_TCP_ADDR}:3306 --timeout=40 --strict \
     -- /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -Dfile.encoding=UTF-8 -Dniord.home=${NIORD_HOME}
     
-#CMD /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -Dfile.encoding=UTF-8 -Dniord.home=${NIORD_HOME}
+#CMD /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 -Dfile.encoding=UTF-8 -Dniord.home=${NIORD_HOME}
