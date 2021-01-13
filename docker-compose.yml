@@ -18,7 +18,7 @@ services:
       - ${NIORD_HOME:-~/.niord-db}/mysql/niord:/var/lib/mysql
 
   niord-wildfly:
-    image: dmadk/niord-wildfly:${NIORD_WILDFLY_VERSION:-0.1}
+    image: dmadk/niord-wildfly:${NIORD_WILDFLY_VERSION:-2.0.0}
     container_name: niord-wildfly
     restart: unless-stopped
     environment:

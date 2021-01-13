@@ -15,4 +15,4 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ${NIORD_HOME:-~/.niord-dk}/mysql/niord:/var/lib/mysql
+      - ${NIORD_HOME:-~/.niord-db}/mysql/niord:/var/lib/mysql
