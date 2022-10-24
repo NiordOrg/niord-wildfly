@@ -27,7 +27,4 @@ RUN yum install -y epel-release && yum install -y jq && yum clean all
 EXPOSE 8080
 EXPOSE 9990
 
-# wait for database docker image before starting Keycloak
 CMD /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -Dfile.encoding=UTF-8 -Dniord.home=${NIORD_HOME}
-    
-#CMD /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 -Dfile.encoding=UTF-8 -Dniord.home=${NIORD_HOME}
