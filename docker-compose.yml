@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  niord-wildfly:
+  niord-appsrv:
     image: "${DOCKER_REGISTRY:-dmadk}/${IMAGE_NAME}:${IMAGE_TAG}"
     container_name: "niord-appsrv"
     restart: unless-stopped
