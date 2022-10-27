@@ -9,6 +9,7 @@ services:
       - ${NIORD_HOME}:/opt/niord
     environment:
       - NIORDDB_PASSWORD=${NIORDDB_PASSWORD}
+      - NIORDDB_USERNAME=${NIORDDB_USERNAME}
       - NIORD_HOME=${NIORD_HOME}
       - NIORDDB_PORT_3306_TCP_ADDR=${NIORDDB_PORT_3306_TCP_ADDR}
     ports:
