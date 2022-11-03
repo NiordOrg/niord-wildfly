@@ -6,7 +6,7 @@ services:
     container_name: "niord-appsrv"
     restart: unless-stopped
     volumes:
-      - ${NIORD-VOLUME}:/opt/niord
+      - ${NIORD_VOLUME}:/opt/niord
     environment:
       - NIORDDB_PASSWORD=${NIORDDB_PASSWORD}
       - NIORDDB_USERNAME=${NIORDDB_USERNAME}
