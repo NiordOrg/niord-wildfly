@@ -18,7 +18,7 @@ This will create a Docker project called "niord-wildfly" with two containers run
 
 This also creates a ~/.niord-db directory on your computer where the Niord applications database is maintained.
 
-# Building Wirefly yourself
+# Building Wildfly yourself
 
 You can also build wildfly yourself by standing in this directory and invoking
 
