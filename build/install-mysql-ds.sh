@@ -4,7 +4,7 @@
 DIR=`dirname $0`
 source $DIR/wildfly-env.sh
 
-MYSQL_DRIVER_VERSION=5.1.49
+MYSQL_DRIVER_VERSION=8.0.30
 MYSQL_DRIVER=mysql-connector-java-$MYSQL_DRIVER_VERSION.jar
 
 
