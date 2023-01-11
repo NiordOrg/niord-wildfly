@@ -4,7 +4,7 @@
 DIR=`dirname $0`
 source $DIR/wildfly-env.sh
 
-MYSQL_DRIVER_VERSION=5.1.49
+MYSQL_DRIVER_VERSION=8.0.30
 MYSQL_DRIVER=mysql-connector-java-$MYSQL_DRIVER_VERSION.jar
 
 
@@ -29,7 +29,7 @@ data-source add \
   --name=niordDS \
   --jndi-name=java:jboss/datasources/niordDS \
   --driver-name=mysql \
-  --connection-url="jdbc:mysql://\${env.NIORDDB_PORT_3306_TCP_ADDR:localhost}:\${env.NIORDDB_PORT_3306_TCP_PORT:3306}/\${env.NIORDDB_DATABASE:niord}?useSSL=false&useUnicode=true&characterEncoding=UTF-8" \
+  --connection-url="jdbc:mysql://\${env.NIORDDB_PORT_3306_TCP_ADDR:localhost}:\${env.NIORDDB_PORT_3306_TCP_PORT:3306}/\${env.NIORDDB_DATABASE:niord}?useSSL=true&requireSSL=false" \
   --user-name=\${env.NIORDDB_USERNAME:niord} \
   --password=\${env.NIORDDB_PASSWORD:niord} \
   --transaction-isolation=TRANSACTION_READ_COMMITTED \
