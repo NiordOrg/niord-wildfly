@@ -14,6 +14,11 @@ services:
       - NIORDDB_PORT_3306_TCP_ADDR=${NIORDDB_PORT_3306_TCP_ADDR}
       - NIORDSMTP_PORT_25_TCP_ADDR=${NIORDSMTP_PORT_25_TCP_ADDR}
       - NIORDSMTP_PORT_25_TCP_PORT=${NIORDSMTP_PORT_25_TCP_PORT}
+    logging:
+      driver: "json-file"
+      options:
+          max-size: "1g"
+          max-file: "3"
     ports:
       - "8080:8080"
       - "9990:9990"
